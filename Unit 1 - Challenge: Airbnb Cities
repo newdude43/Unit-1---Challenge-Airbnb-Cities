@@ -1,0 +1,45 @@
+Unit 1 - Challenge: Airbnb Cities
+
+What’s the most expensive listing? What else can you tell me about the listing?
+What neighborhoods seem to be the most popular?
+What time of year is the cheapest time to go to your city? What about the busiest?
+
+Answer 1:  La Jolla Gem with a view!
+SELECT 
+	name,
+	neighbourhood,
+	room_type,
+	number_of_reviews,
+	price
+FROM 
+	listings
+ORDER BY price DESC 
+LIMIT 3
+
+
+This listing is in La Jolla and is an entire home/apartment listing.  It does not have any reviews.
+
+
+
+Answer 2: 
+
+SELECT 
+	neighbourhood,
+SUM (number_of_reviews)
+FROM 
+	listings
+GROUP BY neighbourhood
+ORDER BY SUM (number_of_reviews) DESC
+
+Mission Bay, Pacific Beach, North Hills, Ocean Beach, La Jolla
+
+ 
+
+
+Answer 3:  I worked off of the calendar.csv file for this exercise:
+
+SELECT avg(price)
+FROM calendar
+GROUP BY date
+
+This is what I would normally start out with.  Due to the dollar signs in the prices listed, the data required substantial cleaning to provide the required answers.  My mentor provided step by step instructions on how to find the answers.
